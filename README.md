@@ -36,8 +36,7 @@ npm start
 
 This will start a static file server on port 1234 that serves files in the
 `/src` directory. Additionally, it will connect this server to
-[Ngrok](https://ngrok.io) so it will be accessible from outside your local
-network.
+[Ngrok](https://ngrok.io) so it will be accessible outside your local network.
 
 # Adding Scripts to Hubs
 
@@ -63,7 +62,8 @@ build the client from source.
 
 Create a new room from the
 [Wide Open Space](https://hubs.aelatgt.net/scenes/BNKgTxW/wideopenspace) scene.
-We recommend testing with this scene since it spawns you near the world origin.
+We recommend testing with this scene since it's minimal and spawns you near the
+origin.
 
 Start the development server and visit the public URL for the `rooms` folder
 that's printed to the console. This page shows a listing of each of your room
@@ -73,7 +73,9 @@ room settings as described above.
 Refresh the page and you should see a red box appear near the center of the
 room:
 
-<img src="https://i.imgur.com/a73GkTV.png" alt="Red box floating above the ground" align="center" height=400 />
+<p align="center">
+<img src="https://i.imgur.com/a73GkTV.png" alt="Red box floating above the ground" height=300 />
+</p>
 
 Take a look at the [`1-basic.js`](./src/rooms/1-basic.js) script to understand
 how it works. This file uses basic JavaScript and DOM APIs to construct an
@@ -108,7 +110,7 @@ create a `.glb` file that contains arbitrary component data attached to an empty
 object. This file can then be loaded into Spoke or directly into Hubs and
 positioned just like a 3D model.
 
-![Hubs Entity Generator application](https://i.imgur.com/ni5xPRW.png)
+[![Hubs Entity Generator application](https://i.imgur.com/ni5xPRW.png)](https://www.aelatgt.org/hubs-entity-generator/)
 
 For complete instructions, refer to the project's
 [README](https://github.com/aelatgt/hubs-entity-generator).
@@ -129,6 +131,7 @@ to export a new `.glb` file.
 ## Option 2: Hubs Blender Exporter
 
 <img src="https://i.imgur.com/EvERDbj.png" alt="Annotated Blender sidebar" align="right" height=300 />
+
 If you're already creating your scene in Blender, you can use the official
 [Hubs Blender extension](https://github.com/MozillaReality/hubs-blender-exporter)
 to attach components to objects in your Blender scene.
