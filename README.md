@@ -9,14 +9,13 @@ scripts, and access them publicly through
 
 # Structure
 
-```
-tutorial/ - How to create custom scripts
-src/
-├─ components/ - A-Frame component definitions
-├─ entities/ - Sample glTF files from the Hubs Entity Generator
-├─ rooms/ - Hubs room scripts
-
-```
+<pre>
+<a href="./tutorial/">tutorial/</a> - How to create custom scripts
+<a href="./src/">src/</a>
+├─ <a href="./src/components/">components/</a> - A-Frame component definitions
+├─ <a href="./src/entities/">entities/</a> - Sample glTF files from the Hubs Entity Generator
+├─ <a href="./src/rooms/">rooms/</a> - Hubs room scripts
+</pre>
 
 # Development
 
