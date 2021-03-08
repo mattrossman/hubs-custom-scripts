@@ -75,8 +75,22 @@ room:
 
 ![Red box floating above the ground](https://i.imgur.com/a73GkTV.png)
 
-Take a look at the [1-basic.js](./src/rooms/1-basic.js) script to understand how
-it works. This file uses basic JavaScript and DOM APIs to construct an A-Frame
-entity, give it properties, and add it to the scene. Refer to the
+Take a look at the [`1-basic.js`](./src/rooms/1-basic.js) script to understand
+how it works. This file uses basic JavaScript and DOM APIs to construct an
+A-Frame entity, give it properties, and add it to the scene. Refer to the
 [A-Frame documentation](https://aframe.io/docs/1.2.0/introduction/javascript-events-dom-apis.html#modifying-the-a-frame-scene-graph)
 on this topic to learn more.
+
+# Custom Components
+
+Anything you can do in a regular A-Frame scene will work in Hubs, including
+adding custom components. Refer to the A-Frame
+[component documentation](https://aframe.io/docs/1.2.0/core/component.html) to
+learn more about this process.
+
+The [`2-custom-component.js`](./src/rooms/2-custom-component.js) room script
+shows an example of a custom component that attaches a
+`THREE.MeshNormalMaterial` to an entity. Notice that we store each component
+definition in a separate file inside the `components` folder and import them
+into the room script. This pattern allows us to write multiple room scripts that
+use the same component.
