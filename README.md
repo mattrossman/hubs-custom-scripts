@@ -73,7 +73,7 @@ room settings as described above.
 Refresh the page and you should see a red box appear near the center of the
 room:
 
-![Red box floating above the ground](https://i.imgur.com/a73GkTV.png)
+<img src="https://i.imgur.com/a73GkTV.png" alt="Red box floating above the ground" align="center" height=400 />
 
 Take a look at the [`1-basic.js`](./src/rooms/1-basic.js) script to understand
 how it works. This file uses basic JavaScript and DOM APIs to construct an
@@ -128,6 +128,7 @@ to export a new `.glb` file.
 
 ## Option 2: Hubs Blender Exporter
 
+<img src="https://i.imgur.com/EvERDbj.png" alt="Annotated Blender sidebar" align="right" height=300 />
 If you're already creating your scene in Blender, you can use the official
 [Hubs Blender extension](https://github.com/MozillaReality/hubs-blender-exporter)
 to attach components to objects in your Blender scene.
@@ -138,5 +139,3 @@ the structure of the
 [default config file](https://github.com/MozillaReality/hubs-blender-exporter/blob/master/default-config.json).
 The config file can be swapped from the **Hubs** panel in the **Scene** tab of
 Blender's sidebar.
-
-![Annotated Blender sidebar](https://i.imgur.com/EvERDbj.png)
