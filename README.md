@@ -142,3 +142,34 @@ the structure of the
 [default config file](https://github.com/MozillaReality/hubs-blender-exporter/blob/master/default-config.json).
 The config file can be swapped from the **Hubs** panel in the **Scene** tab of
 Blender's sidebar.
+
+# Networking
+
+Many components work perfectly fine running independently on each user's device,
+however more complex interactivity may require networking. Hubs uses a fork of
+[`networked-aframe`](https://github.com/MozillaReality/networked-aframe) for
+networked interactions.
+
+Adding custom networked behaviour requires a few basic steps:
+
+1. Append a new `<template>` into the existing `<a-assets>`
+2. Register a new schema for this template with networked-aframe (NAF)
+3. Add the `networked` component to an entity using that template
+
+**IMPORTANT CAVEATS:**
+
+- NAF templates must follow a specific naming convention in order to work on
+  Hubs. The most common one is to end template names with a `-media` suffix.
+- Combining custom networking with runtime `.glb` entities is unstable due to
+  the nesting of `networked` components. If you want to add custom networking to
+  `.glb` entities, add them via Spoke rather than dragging them into a running
+  room.
+
+The [`5-networking.js`](./src/rooms/5-networking.js) script demonstrates a
+simple custom networking example. The script spawns a sphere at the center of
+the room which changes color when a player moves close to it. The color of the
+sphere is networked so all clients see the color change in sync.
+
+A more detailed guide on how to add custom networked interactables to Hubs can
+be found in a guide written by one of its contributors
+[here.](https://github.com/mozilla/hubs/blob/a98d7a62516aa19f11e38f32d2d6683d09643a9a/doc/creating-networked-interactables.md)
