@@ -94,3 +94,49 @@ shows an example of a custom component that attaches a
 definition in a separate file inside the `components` folder and import them
 into the room script. This pattern allows us to write multiple room scripts that
 use the same component.
+
+# Visually Positioning Entities
+
+Hard-coding properties like position, rotation, and scale can grow tiresome and
+makes it difficult to contextualize where an entity lives in your scene. A
+better approach is to position entities through a visual interface.
+
+## Option 1: Hubs Entity Generator
+
+Our [Hubs Entity Generator](https://www.aelatgt.org/hubs-entity-generator/) can
+create a `.glb` file that contains arbitrary component data attached to an empty
+object. This file can then be loaded into Spoke or directly into Hubs and
+positioned just like a 3D model.
+
+![Hubs Entity Generator application](https://i.imgur.com/ni5xPRW.png)
+
+For complete instructions, refer to the project's
+[README](https://github.com/aelatgt/hubs-entity-generator).
+
+The [`3-entity-generator.js`](./src/rooms/3-entity-generator.js) and
+[`4-root-component.js`](./src/rooms/4-root-component.js) scripts demonstrate two
+ways of using the entity generator. The `entities` folder contains sample `.glb`
+files that accompany these scripts. For instance, after loading
+`3-entity-generator.js` into a room, you can drag `entity-3.glb` into the room
+to make the entity appear.
+
+We recommend following the pattern from
+[`4-root-component.js`](./src/rooms/4-root-component.js) by writing a root
+component for each entity that attaches all other components in its `init`
+function. This way you can update the structure of your entity without needing
+to export a new `.glb` file.
+
+## Option 2: Hubs Blender Exporter
+
+If you're already creating your scene in Blender, you can use the official
+[Hubs Blender extension](https://github.com/MozillaReality/hubs-blender-exporter)
+to attach components to objects in your Blender scene.
+
+By default, only a few built-in components are provided. You can create your own
+JSON config file to support custom components and their properties by following
+the structure of the
+[default config file](https://github.com/MozillaReality/hubs-blender-exporter/blob/master/default-config.json).
+The config file can be swapped from the **Hubs** panel in the **Scene** tab of
+Blender's sidebar.
+
+![Annotated Blender sidebar](https://i.imgur.com/EvERDbj.png)
