@@ -17,7 +17,7 @@ AFRAME.registerComponent('entity-4', {
       from: { x: 0, y: 0, z: 0 },
       to: { x: 0, y: 360, z: 0 },
       loop: true,
-      dur: 5000,
+      dur: 3000,
       easing: 'linear',
     })
   },

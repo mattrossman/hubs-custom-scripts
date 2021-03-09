@@ -45,7 +45,9 @@ npm start
 
 This will start a static file server on port 1234 that serves files in the
 `/src` directory. Additionally, it will connect this server to
-[Ngrok](https://ngrok.io) so it will be accessible outside your local network.
+[Ngrok](https://ngrok.io) so it's accessible outside your local network.
+
+> If you're curious how this works, see [`start.js`](./start.js)
 
 ## Adding Scripts to Hubs
 
@@ -97,23 +99,25 @@ room:
 
 Take a look at the [`1-basic.js`](./src/rooms/1-basic.js) script to understand
 how it works. This file uses basic JavaScript and DOM APIs to construct an
-A-Frame entity, give it properties, and add it to the scene. Refer to the
-[A-Frame documentation](https://aframe.io/docs/1.2.0/introduction/javascript-events-dom-apis.html#modifying-the-a-frame-scene-graph)
-on this topic to learn more.
+A-Frame entity, give it properties, and add it to the scene.
+
+> Refer to the A-Frame
+> [scene graph documentation](https://aframe.io/docs/1.2.0/introduction/javascript-events-dom-apis.html#modifying-the-a-frame-scene-graph)
+> to learn more about converting from HTML to JavaScript
 
 ## Custom Components
 
 Anything you can do in a regular A-Frame scene will work in Hubs, including
-adding custom components. Refer to the A-Frame
-[component documentation](https://aframe.io/docs/1.2.0/core/component.html) to
-learn more about this process.
+adding custom components. The
+[`2-custom-component.js`](./src/rooms/2-custom-component.js) room script shows
+an example of a custom component that attaches a material from Three.js to an
+entity. Notice that we store each component definition in a separate file inside
+the `components` folder and import them into the room script. This pattern
+allows us to write multiple room scripts that use the same component.
 
-The [`2-custom-component.js`](./src/rooms/2-custom-component.js) room script
-shows an example of a custom component that attaches a
-`THREE.MeshNormalMaterial` to an entity. Notice that we store each component
-definition in a separate file inside the `components` folder and import them
-into the room script. This pattern allows us to write multiple room scripts that
-use the same component.
+> Refer to the A-Frame
+> [component documentation](https://aframe.io/docs/1.2.0/core/component.html) to
+> learn more about what you can do with custom components.
 
 ## Visually Positioning Entities
 
@@ -130,8 +134,8 @@ positioned just like a 3D model.
 
 [![Hubs Entity Generator application](https://i.imgur.com/ni5xPRW.png)](https://www.aelatgt.org/hubs-entity-generator/)
 
-For complete instructions, refer to the project's
-[README](https://github.com/aelatgt/hubs-entity-generator).
+> For complete instructions, refer to the project's
+> [README](https://github.com/aelatgt/hubs-entity-generator).
 
 The [`3-entity-generator.js`](./src/rooms/3-entity-generator.js) and
 [`4-root-component.js`](./src/rooms/4-root-component.js) scripts demonstrate two
@@ -174,7 +178,7 @@ Adding custom networked behaviour requires a few basic steps:
 2. Register a new schema for this template with networked-aframe (NAF)
 3. Add the `networked` component to an entity using that template
 
-**IMPORTANT CAVEATS:**
+⚠️ **IMPORTANT CAVEATS** ⚠️
 
 - NAF templates must follow a specific naming convention in order to work on
   Hubs. The most common one is to end template names with a `-media` suffix.
@@ -215,5 +219,6 @@ Enable GitHub Pages on the `main` branch and the root folder:
 
 ![Main branch and root folder selected](https://i.imgur.com/ECoB1oc.png)
 
-Now your room scripts will be available at a permanent URL like
-`https://www.aelatgt.org/your-repo/src/rooms/1-basic.js`
+Now your room scripts will be available at a permanent URL like:
+
+https://www.aelatgt.org/your-repo/src/rooms/1-basic.js
