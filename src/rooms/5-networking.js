@@ -1,5 +1,5 @@
 /**
- * Check out each component file for a decription of what they do
+ * Check out each component file for a description of what they do
  */
 import '../components/proximity-event.js'
 import '../components/randomize-networked-color.js'

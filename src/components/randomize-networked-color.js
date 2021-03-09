@@ -1,5 +1,5 @@
 /**
- * Rrandomizes the entity's material color when it detects a given event.
+ * Randomizes the entity's material color when it detects a given event.
  * It includes a few important lines that allow the color to be networked properly.
  */
 AFRAME.registerComponent('randomize-color', {

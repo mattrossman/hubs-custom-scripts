@@ -1,4 +1,4 @@
-# How to use this repo
+## How to use this repo
 
 This repository acts as both a tutorial and a development environment for custom
 scripting in AEL's instance of Mozilla Hubs. To get started,
@@ -6,7 +6,7 @@ scripting in AEL's instance of Mozilla Hubs. To get started,
 and follow the guide below. You can then add new components and room scripts to
 the existing structure, or create your own development environment.
 
-# Structure
+## Structure
 
 <pre>
 <a href="./src/">src/</a>
@@ -15,7 +15,7 @@ the existing structure, or create your own development environment.
 ├─ <a href="./src/rooms/">rooms/</a> - Hubs room scripts
 </pre>
 
-# Development
+## Development
 
 After installing Node.js (and optionally `yarn`) run the following commands:
 
@@ -38,7 +38,7 @@ This will start a static file server on port 1234 that serves files in the
 `/src` directory. Additionally, it will connect this server to
 [Ngrok](https://ngrok.io) so it will be accessible outside your local network.
 
-# Adding Scripts to Hubs
+## Adding Scripts to Hubs
 
 The Hubs client hosted on [hubs.aelatgt.net](https://hubs.aelatgt.net) has been
 modified to support attaching custom scripts to each room. These scripts will
@@ -46,7 +46,7 @@ execute during the page load sequence before connecting to the networked scene.
 This allows you to add new forms of interactivity to Hubs without needing to
 build the client from source.
 
-## Instructions
+### Instructions
 
 1. Click the hamburger menu in the top-left
 2. Select **Room Settings**
@@ -58,7 +58,7 @@ build the client from source.
 
 ![Screenshot of custom script input field](https://i.imgur.com/j6IrzWH.png)
 
-## Try it!
+### Try it!
 
 Create a new room from the
 [Wide Open Space](https://hubs.aelatgt.net/scenes/BNKgTxW/wideopenspace) scene.
@@ -83,7 +83,7 @@ A-Frame entity, give it properties, and add it to the scene. Refer to the
 [A-Frame documentation](https://aframe.io/docs/1.2.0/introduction/javascript-events-dom-apis.html#modifying-the-a-frame-scene-graph)
 on this topic to learn more.
 
-# Custom Components
+## Custom Components
 
 Anything you can do in a regular A-Frame scene will work in Hubs, including
 adding custom components. Refer to the A-Frame
@@ -97,13 +97,13 @@ definition in a separate file inside the `components` folder and import them
 into the room script. This pattern allows us to write multiple room scripts that
 use the same component.
 
-# Visually Positioning Entities
+## Visually Positioning Entities
 
 Hard-coding properties like position, rotation, and scale can grow tiresome and
 makes it difficult to contextualize where an entity lives in your scene. A
 better approach is to position entities through a visual interface.
 
-## Option 1: Hubs Entity Generator
+### Option 1: Hubs Entity Generator
 
 Our [Hubs Entity Generator](https://www.aelatgt.org/hubs-entity-generator/) can
 create a `.glb` file that contains arbitrary component data attached to an empty
@@ -128,7 +128,7 @@ component for each entity that attaches all other components in its `init`
 function. This way you can update the structure of your entity without needing
 to export a new `.glb` file.
 
-## Option 2: Hubs Blender Exporter
+### Option 2: Hubs Blender Exporter
 
 <img src="https://i.imgur.com/EvERDbj.png" alt="Annotated Blender sidebar" align="right" height=300 />
 
@@ -143,7 +143,7 @@ the structure of the
 The config file can be swapped from the **Hubs** panel in the **Scene** tab of
 Blender's sidebar.
 
-# Networking
+## Networking
 
 Many components work perfectly fine running independently on each user's device,
 however more complex interactivity may require networking. Hubs uses a fork of
@@ -173,3 +173,29 @@ sphere is networked so all clients see the color change in sync.
 A more detailed guide on how to add custom networked interactables to Hubs can
 be found in a guide written by one of its contributors
 [here.](https://github.com/mozilla/hubs/blob/a98d7a62516aa19f11e38f32d2d6683d09643a9a/doc/creating-networked-interactables.md)
+
+## Publishing Scripts
+
+Up to this point, your scripts have been hosted on a temporary development
+server via a random subdomain like `e9ce45e858a7.ngrok.io`. In order to have
+your script persist in a room for production you should host it on GitHub,
+specifically in a repository on the
+[AEL organization](https://github.com/aelatgt/). If you've been working on your
+scripts in a personal repository, you can sync those with the organization
+repository by creating a
+[pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
+
+### Enabling Static File Serving
+
+By enabling GitHub Pages on your repository, GitHub can statically serve your
+scripts at a public URL. You can find the option to enable GitHub Pages under
+your repository settings:
+
+![Highlighted settings box](https://i.imgur.com/w8UmMt1.png)
+
+Enable GitHub Pages on the `main` branch and the root folder:
+
+![Main branch and root folder selected](https://i.imgur.com/ECoB1oc.png)
+
+Now your room scripts will be available at a permanent URL like
+`https://www.aelatgt.org/your-repo/src/rooms/1-basic.js`
