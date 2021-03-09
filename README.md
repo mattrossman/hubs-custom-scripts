@@ -6,7 +6,16 @@ scripting in AEL's instance of Mozilla Hubs. To get started,
 and follow the guide below. You can then add new components and room scripts to
 the existing structure, or create your own development environment.
 
-## Structure
+## Table of Contents
+
+1. [Running the Development Server](#running-the-development-server)
+2. [Adding Scripts to Hubs](#adding-scripts-to-hubs)
+3. [Custom Components](#custom-components)
+4. [Visually Positioning Entities](#visually-positioning-entities)
+5. [Networking](#networking)
+6. [Publishing Scripts](#publishing-scripts)
+
+The sample code is structured as follows:
 
 <pre>
 <a href="./src/">src/</a>
@@ -15,7 +24,7 @@ the existing structure, or create your own development environment.
 ├─ <a href="./src/rooms/">rooms/</a> - Hubs room scripts
 </pre>
 
-## Development
+## Running the Development Server
 
 After installing Node.js (and optionally `yarn`) run the following commands:
 
@@ -57,6 +66,15 @@ build the client from source.
 6. Refresh the page to see the effects of the script(s)
 
 ![Screenshot of custom script input field](https://i.imgur.com/j6IrzWH.png)
+
+At this time only certain hosts are supported for script URLs:
+
+- [Ngrok](https://ngrok.com) - for development on local server
+- [Glitch](https://glitch.com) - cloud based development tool
+- [GitHub Pages](https://pages.github.com/) - for finished scripts
+
+Any assets referenced from your scripts, such as images and 3D models, should
+also be served from an approved domain.
 
 ### Try it!
 
