@@ -2,7 +2,7 @@
  * Randomizes the entity's material color when it detects a given event.
  * It includes a few important lines that allow the color to be networked properly.
  */
-AFRAME.registerComponent('randomize-color', {
+AFRAME.registerComponent('randomize-networked-color', {
   schema: {
     event: { type: 'string' },
   },
@@ -16,9 +16,7 @@ AFRAME.registerComponent('randomize-color', {
          * You can also check whether you have ownership with NAF.utils.isMine(el)
          */
         NAF.utils.takeOwnership(this.el)
-        this.el.setAttribute('material', {
-          color: '#' + Math.floor(Math.random() * 16777215).toString(16),
-        })
+        this.el.setAttribute('material', { color: Math.random() * 0xffffff })
       }
     })
   },

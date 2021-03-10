@@ -19,7 +19,7 @@ assets.insertAdjacentHTML(
       geometry="primitive: sphere"
       material="color: white; shader: flat"
       proximity-event="event: bump; radius: 3"
-      randomize-color="event: bump;">
+      randomize-networked-color="event: bump;">
     </a-entity>
   </template>
 `
