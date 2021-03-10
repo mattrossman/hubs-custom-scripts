@@ -15,9 +15,9 @@ assets.insertAdjacentHTML(
   <template id="color-media">
     <a-entity
       geometry="primitive: sphere"
-			material="shader: flat"
+      material="shader: flat"
       single-action-button="event: click"
-			randomize-networked-color="event: click"
+      randomize-networked-color="event: click"
     ></a-entity>
   </template>
 `
@@ -35,7 +35,6 @@ NAF.schemas.add({
 
 const entity = document.createElement('a-entity')
 entity.setAttribute('position', { x: 0, y: 2, z: 0 })
-
 entity.setAttribute('networked', {
   template: '#color-media',
   networkId: 'button',
