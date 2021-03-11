@@ -129,8 +129,8 @@ better approach is to position entities through a visual interface.
 
 Our [Hubs Entity Generator](https://www.aelatgt.org/hubs-entity-generator/) can
 create a `.glb` file that contains arbitrary component data attached to an empty
-object. This file can then be loaded into Spoke or directly into Hubs and
-positioned just like a 3D model.
+object. This file can then be loaded into Spoke and positioned just like a 3D
+model.
 
 [![Hubs Entity Generator application](https://i.imgur.com/ni5xPRW.png)](https://www.aelatgt.org/hubs-entity-generator/)
 
@@ -144,11 +144,17 @@ files that accompany these scripts. For instance, after loading
 `3-entity-generator.js` into a room, you can drag `entity-3.glb` into the room
 to make the entity appear.
 
+> ⚠️ Dragging an entity `.glb` into a running Hubs room can be a useful trick
+> during development, but Hubs' default networking and interactions on 3D
+> objects can conflict with custom networking or interaction scripts. Instead,
+> you should upload and position these `.glb` files through Spoke so that no
+> default behavior is attached.
+
 We recommend following the pattern from
 [`4-root-component.js`](./src/rooms/4-root-component.js) by writing a root
 component for each entity that attaches all other components in its `init`
 function. This way you can update the structure of your entity without needing
-to export a new `.glb` file.
+to export a new `.glb` file or re-publish the Spoke scene.
 
 ### Option 2: Hubs Blender Exporter
 
@@ -178,14 +184,8 @@ Adding custom networked behaviour requires a few basic steps:
 2. Register a new schema for this template with networked-aframe (NAF)
 3. Add the `networked` component to an entity using that template
 
-⚠️ **IMPORTANT CAVEATS** ⚠️
-
-- NAF templates must follow a specific naming convention in order to work on
-  Hubs. The most common one is to end template names with a `-media` suffix.
-- Combining custom networking with runtime `.glb` entities is unstable due to
-  the nesting of `networked` components. If you want to add custom networking to
-  `.glb` entities, add them via Spoke rather than dragging them into a running
-  room.
+> ⚠️ NAF templates must follow a specific naming convention in order to work on
+> Hubs. The most common one is to end template names with a `-media` suffix.
 
 The [`5-networking.js`](./src/rooms/5-networking.js) script demonstrates a
 simple custom networking example. The script spawns a sphere at the center of
@@ -195,6 +195,25 @@ sphere is networked so all clients see the color change in sync.
 A more detailed guide on how to add custom networked interactables to Hubs can
 be found in a guide written by one of its contributors
 [here.](https://github.com/mozilla/hubs/blob/a98d7a62516aa19f11e38f32d2d6683d09643a9a/doc/creating-networked-interactables.md)
+
+## Interaction
+
+Hubs' interaction system works differently from what you might be familiar with
+in vanilla A-Frame. It's designed to work across a variety of inputs, so you
+should use the existing systems where possible. This is an area of active
+exploration and may require some poking around the
+[Hubs source code](https://github.com/mozilla/hubs) to achieve your desired
+effect.
+
+To help get you started, we provide two interaction samples.
+[`6-interaction-click.js`](./src/rooms/6-interaction-click.js) demonstrates how
+to set up an object with the `SingleActionButtonSystem` so that it effectively
+receives click events.
+[`7-interaction-drag.js`](./src/rooms/7-interaction-drag.js) shows how to set up
+an object with the `HoldableButtonSystem` to receive the rough equivalent of
+pointer down and up events, which can be used for clicking and dragging on
+things. Both examples include networking logic so interactions are shared across
+clients.
 
 ## Publishing Scripts
 
@@ -221,4 +240,4 @@ Enable GitHub Pages on the `main` branch and the root folder:
 
 Now your room scripts will be available at a permanent URL like:
 
-https://www.aelatgt.org/your-repo/src/rooms/1-basic.js
+https://www.aelatgt.org/hubs-custom-scripts/src/rooms/1-basic.js
